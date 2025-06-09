@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware  # Importar el middleware CORS
 from pydantic import BaseModel
 from typing import Dict, List, Optional, Union, Any
 import gtfs_service
