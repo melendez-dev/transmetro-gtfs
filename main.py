@@ -6,6 +6,15 @@ import gtfs_service
 app = FastAPI(title="GTFS Route Finder API", 
               description="API para encontrar rutas de transporte público usando datos GTFS")
 
+# Configurar CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite todos los orígenes
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos los métodos
+    allow_headers=["*"],  # Permite todos los headers
+)
+
 class Coordinates(BaseModel):
     lat: float
     lng: float
