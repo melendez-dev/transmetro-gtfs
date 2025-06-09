@@ -10,9 +10,11 @@ app = FastAPI(title="GTFS Route Finder API",
 # Configurar CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Permite todos los orígenes
-    allow_methods=["*"],  # Permite todos los métodos
-    allow_headers=["*"],  # Permite todos los headers
+    allow_origins=["*"],
+    allow_credentials=False,  # Cambia a False cuando uses allow_origins=["*"]
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
+    expose_headers=["*"]
 )
 
 class Coordinates(BaseModel):
